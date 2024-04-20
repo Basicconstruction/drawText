@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Character_Image.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Character_Image.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Character_Image">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <DockPanel>
+        <DockPanel Width="300" DockPanel.Dock="Right"  Background="Cornsilk">
+            <StackPanel Margin="20" Orientation="Horizontal" DockPanel.Dock="Top">
+                <Button Margin="20,0" HorizontalAlignment="Center" Click="Button_OnClick3">原图</Button>
+                <Button Margin="20,0" HorizontalAlignment="Center" Click="Button_OnClick4">大灰度</Button>
+                <Button Margin="20,0" HorizontalAlignment="Center" Click="Button_OnClick5">第一部分</Button>
+            </StackPanel>
+            <StackPanel Margin="20" Orientation="Horizontal" DockPanel.Dock="Top">
+                <Button Margin="20,0" HorizontalAlignment="Center" Click="Button_OnClick">放大并灰度</Button>
+                <Button Margin="20,0" HorizontalAlignment="Center" Click="Button_OnClick2">裁切</Button>
+            </StackPanel>
+            <WrapPanel Orientation="Horizontal" Margin="20" DockPanel.Dock="Top">
+                <Label>字体大小</Label>
+                <TextBox Height="40" Width="100" Text="{Binding FontSize}"></TextBox>
+                <TextBox Height="40" Width="100" Text="{Binding DrawText}"></TextBox>
+                <Button x:Name="DrawString" Click="DrawString_OnClick">绘制字符串测试</Button>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal" Margin="20">
+                <Button x:Name="Drawer" Click="Drawer_OnClick">尝试绘制</Button>
+            </WrapPanel>
+            <Panel></Panel>
+        </DockPanel>
+        <Grid>
+            <Border Padding="40">
+                <Border BorderThickness="1" BorderBrush="Black">
+                    <Image x:Name="DisplayImage" Source="{Binding DisplayImage}"  ></Image>
+                </Border>
+            </Border>
+        </Grid>
+    </DockPanel>
+
+</Window>
